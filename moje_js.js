@@ -7,7 +7,7 @@ var main=function(){
 
   var input=$('input[type=email]');
   var pass=$('input[type=password]');
-
+  //zmienna logiczna czyWyslac, informuje, czy formularz jest prawidlowo wypelniony, na tej podstawie wywoływane są określone zdarzenia
   var czyWyslac=false;
 
   function dodajKomunikat(){
@@ -29,13 +29,14 @@ var main=function(){
     {
     	
      etykieta.text('Ok');
+     //jesli wprowadzony tekst jest wystarczająco długi to czyWyslac prxyjmuje watość true
      czyWyslac=true;
     	
     }
 
   }
 
-
+  //funkcja dodajKomunikat jest wywoływana wraz ze wciskaniem klawiatury
   input.on('keydown',dodajKomunikat);
   pass.on('keydown', dodajKomunikat);
 
@@ -45,7 +46,7 @@ var main=function(){
   	   alert('Wysłane!!!');
      }
     else{
-        alert('Wypełnij prawisłowo formularz!')
+        alert('Wypełnij prawidłowo formularz!')
      }
 
 
