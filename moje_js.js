@@ -1,4 +1,5 @@
 var main=function(){
+  //zmiana kolory tła w elemencie input 
   $('input').focus(function(){
 
     $(this).css('background','#ddd');
@@ -7,10 +8,12 @@ var main=function(){
   var input=$('input[type=email]');
   var pass=$('input[type=password]');
 
+  var czyWyslac=false;
+
   function dodajKomunikat(){
 
   	$(this).parent().find('label').remove();
-
+    //sprawdzenie długości tekstu wpisanego do inputa
   	var lengthInput=0;
   	lengthInput=$(this).val().length;
 
@@ -19,17 +22,15 @@ var main=function(){
 
     if(lengthInput<=4){
      
-    	//$(this).parent().append( label );
     	etykieta.text('ten tekst jest za krótki');
-        //console.log($(this).parent().find('.komunikat').length);
+        
     }
     else if(lengthInput>4)
     {
     	
-    	//$(this).parent().append( label );
+     etykieta.text('Ok');
+     czyWyslac=true;
     	
-    	etykieta.text('Ok');
-    	//$('.komunikat').removeClass('komunikat');
     }
 
   }
@@ -40,7 +41,13 @@ var main=function(){
 
   $('form').on('submit', function(e){
   	e.preventDefault;
-  	alert('Wysłane!!!');
+    if(czyWyslac){
+  	   alert('Wysłane!!!');
+     }
+    else{
+        alert('Wypełnij prawisłowo formularz!')
+     }
+
 
   })
 
